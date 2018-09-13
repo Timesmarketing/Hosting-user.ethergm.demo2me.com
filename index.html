@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+        <title>HAPPYETHER</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Roulette Star-ETH高額獎金遊戲，是著名的輪盤遊戲，而延伸設計出的ETH輪盤遊戲，輪轉之星獲得為每一輪的最高額獎金，期待各位玩家能在遊戲過程中有豐收的獲利，並且成為每一輪最後進場的Lucky guys" />
+		<meta name="keywords" content="bitcoin,ethereum,BTC,ETH,ethereum,比特幣,以太幣,遊戲,資金盤, 虛擬貨幣遊戲,區塊鏈遊戲,,fomo3D,動態分紅,動態分紅Dapp遊戲,Dapp,貪婪遊戲,加密貨幣,虛擬貨幣,ICO投資,投資理財,F3D, Fomo3D, Proof of Weak Hands, P3D, PoWH3D, Cryptocurrency, ICO, Parody, Satire, Gambling, Jackpot, Lottery, Referral, Passive Income, UBI" />
+		<meta property="og:image" content="img/favi.jpg">
+        <!-- ================= Favicon ================== -->
+        <!-- Standard -->
+        <link rel="shortcut icon" href="img/favi.jpg">
+        <!-- Retina iPad Touch Icon-->
+        <link rel="apple-touch-icon" sizes="144x144" href="img/favi.jpg">
+        <!-- Retina iPhone Touch Icon-->
+        <link rel="apple-touch-icon" sizes="114x114" href="img/favi.jpg">
+        <!-- Standard iPad Touch Icon--> 
+        <link rel="apple-touch-icon" sizes="72x72" href="img/favi.jpg">
+        <!-- Standard iPhone Touch Icon--> 
+        <link rel="apple-touch-icon" sizes="57x57" href="img/favi.jpg">
+
+        <!-- ============== Resources style ============== -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+		<!-- ============== DataTable ============== -->
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/custom.css" />
+
+		<!-- Modernizr runs quickly on page load to detect features -->
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript">
+			var host = "happyether.online";
+			if ((host == window.location.host) && (window.location.protocol != "https:"))
+				window.location.protocol = "https";
+			</script>
+		
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PFQZPT8');</script>
+	<!-- End Google Tag Manager -->
+		 
+	     <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124603039-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124603039-1');
+</script>
+
+
+
+	</head>
+	
+	<body onload="start()" onresize="resize()" onorientationchange="resize()">
+			<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFQZPT8"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+		<!-- Page preloader -->
+		<!-- <div id="loading">
+			<div id="preloader">
+				<span></span>
+				<span></span>
+			</div>
+		</div> -->
+
+		<!-- Star Wars Canvas -->
+		<canvas id="starfield"></canvas>
+		<!-- Overlay -->
+		<div class="alert-div">
+			<div class="copyAlert">
+				<h4 class="poppins">Copied to Clipboard!</h4>
+			</div>
+			<div class="inCourseAlert">
+				<h4 class="poppins" id="inCourseId"></h4>
+			</div>
+			<div class="outCourseAlert">
+				<h4 class="poppins" id="outCourseId"></h4>
+			</div>
+		</div>
+		<div class="global-overlay">
+			<div class="overlay">
+
+			</div>
+		</div>
+		<div class="block-content text-intro opacity-0" style="float: right; position: absolute;z-index: 2000;">
+			<div id="google_translate_element"></div>
+		</div>
+		<div class="custom-content" align="center">
+			<!-- <img src="img/logo.png" alt="" class="brand-logo text-intro opacity-0" /> -->
+			<div class="block-content text-intro opacity-0">
+				<h1 class="neon-title logo-title">HAPPYETHER</h1>
+				<h1 class="neon-title title"><i class="fab fa-ethereum"></i></h1>
+				<h1 class="neon-title title" id="accountBalance">64.8114</h1>
+			</div>
+			<div class="block-content block-animate-border text-intro opacity-0">
+				<i class="fas fa-star running-icon-top neon-effect"></i>
+				<i class="fas fa-star hidden-xs running-icon-bottom neon-effect"></i>
+				<h1 class="poppins neon-effect text-intro text-countdown opacity-0" style="margin: 15px 0;">
+					<!-- <span id="round"></span> ROUND  -->
+					<span id="countDownLabel">Countdown</span>
+					<br>
+					<div id="getting-started"></div>
+				</h1>
+				<h1 class="poppins neon-effect text-intro text-countdown opacity-0" style="margin: 15px 0;">
+					It's the <span id="round"></span> ROUND
+				</h1>
+				<h1 class="poppins neon-effect text-intro text-countdown opacity-0" style="margin: 15px 0;">
+					<span id="playerCountDown"></span> tickets to Roulette Star
+				</h1>
+				<!-- <div class="col-xs-12 col-sm-3 pic-sec">
+					<div class="img-sec animated infinite bounce fast">
+						<h6>此輪入場券金額<span class="fee">0.01</span>ETH</h6>
+						<img src="img/1-noBG.jpg" class="img-responsive" style="width:60%;" alt="">
+						<p>
+							每次只能傳送<span class="fee">0.01</span>ETH入場<br>
+							傳送過多，交易將會失敗
+						</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 pic-sec">
+					<div class="img-sec animated infinite bounce fast">
+						<h6>此輪出場獎金倍數<span id="price">1.2</span>倍</h6>
+						<img src="img/2-noBG.jpg" class="img-responsive" alt="">
+						<p>
+							每增加三位玩家進入遊戲，即自動出場，
+							智能合約會自動將獎金打回至您的錢包
+						</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 pic-sec">
+					<div class="img-sec animated infinite bounce fast">
+						<h6>
+							『輪轉之星』<br>
+							此輪最後入場玩家將得到
+							累積ETH總數之20%為該獎金
+						</h6>
+						<img src="img/3-noBG.jpg" class="img-responsive" style="width:50%;" alt="">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 pic-sec">
+					<div class="img-sec animated infinite bounce fast">
+						<h6>
+							上一輪遊戲未出場玩家<br>
+							將會累積至下一輪等待出場
+						</h6>
+						<img src="img/4-noBG.jpg" class="img-responsive" style="width:60%;" alt="">
+						<p>
+							交易排序以Etherscan上已成功交易的排序為主，所有玩家皆可在上方查詢記錄
+						</p>
+					</div>
+				</div> -->
+			</div>
+<!-- 			
+			<div class="block-content">
+				
+			</div> -->
+
+			<!-- <a href="#" id="open-more-info" data-target="info-wrap" class="light-btn text-intro opacity-0">More Informations</a> -->
+			<div class="block-content text-intro opacity-0" style="margin-top: 50px;">
+				<p style="opacity: 0; cursor: normal;" id="contractAddress">0x8bd1d64b09c5c1274a21a1b0754770898fe10e1b</p>
+				<button id="copyBtn" type="button" class="hidden-xs action-btn trigger text-intro opacity-0" title="Copy address to clipboard" data-clipboard-target="#contractAddress">
+						0x8bd1d64b09c5c1274a21a1b0754770898fe10e1b
+					<!-- <i class="fas fa-copy"></i> -->
+				</button>
+				<button id="copyBtn1" type="button" class="visible-xs action-btn trigger text-intro opacity-0" title="Copy address to clipboard" data-clipboard-target="#contractAddress">
+						0x8bd1d64b09c5c1274a<br>21a1b0754770898fe10e1b
+					<!-- <i class="fas fa-copy"></i> -->
+				</button>
+				<div id="modalDiv" class="modalDiv" align="center">
+					<div class="modalDiv-info">
+						<h2 class="poppins">
+							Click to clipboard to start.
+						</h2>
+					</div>
+				</div>
+				<!-- <a class="action-btn trigger text-intro opacity-0" onclick="openInfoModal()">Informations</a>
+				<div id="modalDiv" class="">
+					<div class="black-cover"></div>
+					<div class="modalInfo">
+						<div class="col-xs-8 col-xs-offset-2 modalInfo-img">
+							<img src="img/qr_code.png" class="img-responsive" alt="">
+						</div>
+						<div class="col-xs-12">
+							<div class="col-xs-10 modalInfo-address">
+								<h2 id="contractAddress"></h2>
+							</div>
+							<div class="col-xs-2">
+								<button type="button" id="copyBtn" class="modalInfo-copy-btn" title="Copy address to clipboard" data-clipboard-target="#contractAddress">
+									<i class="fas fa-copy"></i>
+								</button>
+							</div>
+							<div class="col-xs-12" align="center">
+								<button class="action-btn" onclick="closeInfoModal()">
+									關閉
+								</button>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+
+			<div class="block-content text-intro opacity-0"  style="margin-top: 30px;">
+				<div class="col-xs-12 col-sm-6">
+					<h2 class="fee-and-price poppins">Round of ticket : <span class="fee">0.01</span> ETH</h2>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<h2 class="fee-and-price poppins">Round of Bonus : <span id="price">120</span> %</h2>
+				</div>
+			</div>
+
+			<div class="block-content text-intro opacity-0"  style="margin-top: 30px;">
+				<!-- <h1 class="poppins">Last Round of Roulette Star</h1>
+				<h3 class="poppins" id="roundWinner"></h3> -->
+			</div>
+			<!-- Queuing Table -->
+			<div class="col-xs-12 col-sm-6 text-intro opacity-0">
+				<h1 class="poppins">PLAYER LIST</h1>
+				<div class="block-content table-div">
+					<table id="queuingTable" class="table nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<!-- <th>時間</th> -->
+								<!-- <th>Name</th> -->
+								<th>Address</th>
+								<!-- <th>入場金額</th> -->
+								<!-- <th>Amount</th> -->
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th></th>
+								<th></th>
+								<!-- <th>時間</th> -->
+								<!-- <th>Name</th> -->
+								<th>Address</th>
+								<!-- <th>入場金額</th> -->
+								<!-- <th>Amount</th> -->
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<!-- return profit table -->
+			<div class="col-xs-12 col-sm-6 text-intro opacity-0">
+				<h1 class="poppins">ROULETTE STAR</h1>
+				<div class="block-content table-div">
+					<table id="returnedTable" class="table" style="width:100%">
+						<thead>
+							<tr>
+								<th style="white-space: nowrap;">Round</th>
+								<th></th>
+								<th>Winner</th>
+								<!-- <th>Name</th> -->
+								<th>Bonus</th>
+								<!-- <th>To</th> -->
+								<!-- <th>Amount</th> -->
+							</tr>
+						</thead>
+						<tbody>
+							<!-- <tr role="row" class="even"><td class="sorting_1"><div class="">2</div></td><td><div class="crown"></div></td><td><div class="walletAddressWinner">0xcfeaaef613ed1a2d8da5f77516eae3eee662ca57</div></td><td><div class="">6.6506</div></td></tr><tr role="row" class="odd"><td class="sorting_1"><div class="">1</div></td><td><div class="crown"></div></td><td><div class="walletAddressWinner">0x7b7a442a4f529efcfc79e4242ac4291f7d3de09f</div></td><td><div class="">2.2</div></td></tr> -->
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Round</th>
+								<th></th>
+								<th>Winner</th>
+								<!-- <th>Name</th> -->
+								<th>Bonus</th>
+								<!-- <th>To</th> -->
+								<!-- <th>Amount</th> -->
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<!-- instructions -->
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+				<h2 style="padding-top:50px;" class="neon-effect poppins" id="roundsLeft"></h2>
+				<h2 style="" class="neon-effect poppins">Rules of the roulette star game. </h2>
+				<br>
+				<h3 class="neon-effect poppins">Legend.1 「Ticket prices for each round」</h3>
+				<div class="block-content instructions helvetica">
+					1st 0.1 ETH,2nd 0.11 ETH,3rd 0.12 ETH,4th 0.13 ETH,5th 0.14 ETH…..and so on. <br>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+				<h3 class="neon-effect poppins">Legend.2 「How to get bonus」</h3>
+				<div class="block-content instructions helvetica">
+					The first player joining the game will get bonus when every three more players join the game.  The bonuses are assigned by smart contract. <br>
+					For example, Player A is the first one joining the game. After player B.C.D join the game, PlayerＡwill get the bonus, which will be 120% of the ticket price. Take the first round as an example, the ticket cost 0.1 ETH. The bonus will be 120% of the ticket price and equal to 0.12 ETH『 0.1 ETH, x 120% bonus ＝ 0.12 ETH』				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+				<h3 class="neon-effect poppins">Legend.3 「The bonus for each round」</h3>
+				<div class="block-content instructions helvetica">
+					1st 120% bonus, 2nd 121% bonus, 3rd 122% bonus, 4th 123% bonus, 5th 124% bonus…..and so on.
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+				<h3 class="neon-effect poppins">Legend.4 「Roulette Star」</h3>
+				<div class="block-content instructions helvetica">
+					The limit of each round is 600 key of entry. Last player means the 600th who joining the game can get a Maximum bonus, “Roulette Star”, which is currently cumulating to 20% of the total.</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+				<h3 class="neon-effect poppins">Legend.5 「How to work」</h3>
+				<div class="block-content instructions helvetica">
+					If there is no player to get bonus in a round, the bonus will be add on the next round. The admission of each round and the bonus allocation are All operated by Smart Contract.</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+					<h3 class="neon-effect poppins">Legend.6「Game over」</h3>
+					<div class="block-content instructions helvetica">
+							The total amount of 50 %  will be share for all player who doesn't get bonus in 12 hours ending,and the game will into reset in the same time.
+							Everyone have get bouns chance.
+				</div>
+			<div class="col-xs-12 col-sm-12 text-intro opacity-0">
+				<div class="block-content instructions helvetica">
+					Wish every player joining the roulette game could get an abundant profit<br>
+					Good luck to being the final one of each round!!!
+				</div>
+			</div>
+		</div>
+		<!-- START - Home Part -->
+		<!-- <section id="home-wrap"> -->
+			
+			<!-- Stars Overlay - Uncomment the next 3 lines to activate the effect-->
+			<!-- <div id='stars'></div>
+			<div id='stars2'></div>
+			<div id='stars3'></div> -->
+			<!-- Social icons 
+			<div class="social-icons text-intro opacity-0">
+
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-google-plus"></i></a>
+				<a href="#"><i class="fa fa-linkedin"></i></a>
+
+			</div> /. social-icons -->
+
+		<!-- </section> -->
+		<!-- END - Home Part -->
+
+		<!-- START - More Informations Part -->
+		<!-- <section id="info-wrap">
+
+			<div class="hero">
+					
+				<div class="center-text">
+
+					<h3 class="darky">Everything you need.</h3>
+				
+					<p>Hi, <strong>We are</strong> the Legend, your new template ready to use. Handmade, precisely built with the famous Bootstrap Framework. Bonjour, <strong>Nous sommes</strong> la Légende, votre nouveau template prêt à l'emploi. Fait main, construit avec précision grâce au célèbre Framework Bootstrap. Привет, <strong>Мы</strong> Легенда, ваш новый шаблон готов к использованию. Ручной, четко выстроенная с известным Framework Bootstrap. 嗨，<strong>我们</strong>的联想，新模板就可以使用。手工制作的，恰恰与著名引导框架建成</p>
+
+				</div>
+
+			</div>
+
+			<div class="content">
+					
+				<div class="photo-line">
+						
+					<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 col-lg-6 clear-second">
+							
+
+							<a class="box-picture" href="img/gallery-1.jpg" itemprop="contentUrl" data-size="1920x1280">
+								
+
+								<img src="img/gallery-1.jpg" itemprop="thumbnail" alt="This is my work" class="img-responsive" />
+								<div class="text-center">
+									<h4>The bridge</h4>
+									<p>May 14, 2016</p>
+								</div>
+								
+							</a>
+								
+							<figcaption itemprop="caption description">
+
+								<div class="photo-details">
+								
+									<h4>Fly in the sky</h4>
+
+									<span class="border"></span>
+
+									<p>This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.</p>
+
+								</div>
+
+							</figcaption>
+
+						</figure>
+
+						
+						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 col-lg-6">
+							
+						
+							<a class="box-picture" href="img/gallery-2.jpg" itemprop="contentUrl" data-size="1920x1280">
+								
+						
+								<img src="img/gallery-2.jpg" itemprop="thumbnail" alt="This is my work" class="img-responsive" />
+								<div class="text-center">
+									<h4>Natural life</h4>
+									<p>July 26, 2016</p>
+								</div>
+								
+							</a>
+								
+							
+							<figcaption itemprop="caption description">
+
+								<div class="photo-details">
+								
+									<h4>探索世界</h4>
+
+									<span class="border"></span>
+
+									<p>This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.</p>
+
+								</div>
+
+							</figcaption>
+
+						</figure>
+
+						
+						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 col-lg-6 clear-second">
+							
+						
+							<a class="box-picture" href="img/gallery-3.jpg" itemprop="contentUrl" data-size="1920x1280">
+								
+						
+								<img src="img/gallery-3.jpg" itemprop="thumbnail" alt="This is my work" class="img-responsive" />
+								<span class="widget-angle-bottom-left">
+									<span class="icon-text">
+										<i class="icon ion-ios-star"></i>
+									</span>
+								</span>
+								<div class="text-center">
+									<h4>Architecture</h4>
+									<p>June 23, 2016</p>
+								</div>
+								
+							</a>
+								
+							
+							<figcaption itemprop="caption description">
+
+								<div class="photo-details">
+								
+									<h4>Entre ciel et mer</h4>
+
+									<span class="border"></span>
+
+									<p>This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.</p>
+
+								</div>
+
+							</figcaption>
+
+						</figure>
+
+						
+						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 col-lg-6">
+							
+						
+							<a class="box-picture" href="img/gallery-4.jpg" itemprop="contentUrl" data-size="1920x1280">
+								
+						
+								<img src="img/gallery-4.jpg" itemprop="thumbnail" alt="This is my work" class="img-responsive" />
+								<span class="widget-angle-top-right">
+									<span class="icon-text">
+										<i class="icon ion-ios-star"></i>
+									</span>
+								</span>
+								<div class="text-center">
+									<h4>The mountains</h4>
+									<p>December 24, 2016</p>
+								</div>
+								
+							</a>
+								
+							
+							<figcaption itemprop="caption description">
+
+								<div class="photo-details">
+								
+									<h4>In einem Kokon</h4>
+
+									<span class="border"></span>
+
+									<p>This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.</p>
+
+								</div>
+
+							</figcaption>
+
+						</figure>
+							
+					</div> 
+
+				</div> 
+
+			</div>  -->
+			<!-- <div class="dark-hero">
+
+				<div class="center-text">
+
+					<h3 class="lighty">Get in touch!</h3>
+
+					<div class="info-contact row">
+
+		                <div class="col-xs-12 col-sm-4 col-lg-4 item-map">
+		                    <div class="contact-item"><i class="icon ion-ios-telephone"></i>
+		                        <p>Phone: (+33) 66-1254-611
+	                            	<br>Fax: (+38) 66-1254-989</p>
+		                    </div>
+		                </div>
+
+		                <div class="col-xs-12 col-sm-4 col-lg-4 item-map">
+		                    <div class="contact-item"><i class="icon ion-ios-location"></i>
+		                        <p>Hobbemastraat 19,
+		                            <br>Amsterdam, NL</p>
+		                    </div>
+		                </div>
+
+		                <div class="col-xs-12 col-sm-4 col-lg-4 item-map">
+		                    <div class="contact-item"><i class="icon ion-ios-email"></i>
+		                        <p><a href="mailto:your-email@good.com">hiam@example.com</a>
+		                        	<br><a href="mailto:your-email-pro@good.com">hiam-pro@example.com</a>
+		                        </p>
+		                    </div>
+		                </div>
+
+            		</div>
+
+				</div>
+
+			</div>  -->
+			<!-- /. dark-hero -->
+
+			<!-- <div class="content-form no-padding-bottom">
+		    	<table id="queuingTable" class="displayed" style="width:100%">
+					<thead>
+						<tr>
+							<th>TimeStamp</th>
+							<th>Name</th>
+							<th>From</th>
+							<th>To</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>TimeStamp</th>
+							<th>Name</th>
+							<th>From</th>
+							<th>To</th>
+							<th>Amount</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div> -->
+			<!-- <footer>
+
+				<p>© LEGEND - Made for legendary people</p>
+
+			</footer> -->
+
+		<!-- </section> -->
+		<!-- END - More Informations Part -->
+
+		<!-- Button Cross to close the More Informations/Right Part -->
+		<!-- <div class="command-info-wrap">
+			
+			<button class="to-close">
+				<i class="icon ion-close-round"></i>
+			</button>
+
+			<div class="to-scroll" data-toggle="tooltip" data-placement="left" title="Scroll to see more...">
+				<i class="icon ion-arrow-down-c scroll-down"></i>
+			</div>
+
+		</div>
+
+		-->
+		<!-- <div id="somedialog" class="dialog">
+
+			<div class="dialog__overlay"></div>
+					
+			<div class="dialog__content">
+						
+				<div class="dialog-inner">
+							
+					<h4>Join the Legend right now!</h4>
+							
+					<p>Being the first to know always feels great... Signing up to our newsletter gives you <strong>exclusive access to our Grand Opening!</strong></p>
+
+					
+					<div id="subscribe">
+
+		                <form action="php/notify-me.php" id="notifyMe" method="POST">
+
+		                    <div class="form-group">
+
+		                        <div class="controls">
+		                            
+		                        	<input type="text" id="mail-sub" TimeStamp="email" placeholder="Click here to write your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to write your email'" class="form-control email srequiredFieldame" />
+
+		                        	<i class="fa fa-spinner opacity-0"></i>
+
+		                            <button class="btn btn-lg submit">Get notified</button>
+
+		                            <div class="clear"></div>
+
+		                        </div>
+
+		                    </div>
+
+		                </form>
+
+						<div class="block-message">
+
+							<div class="message">
+
+								<p class="notify-valid"></p>
+
+							</div>
+
+						</div>
+
+        			</div>
+
+				</div>
+
+				<button class="close-newsletter" data-dialog-close><i class="icon ion-close-round"></i></button>
+
+			</div>
+						
+		</div> -->
+		<!--
+		
+
+		<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+	        	It's a separate element as animating opacity is faster than rgba().
+		    <div class="pswp__bg"></div>
+
+		    <div class="pswp__scroll-wrap">
+
+		            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+		            Don't modify these 3 pswp__item elements, data is added later on.
+		        <div class="pswp__container">
+		            <div class="pswp__item"></div>
+		            <div class="pswp__item"></div>
+		            <div class="pswp__item"></div>
+		        </div>
+
+		        <div class="pswp__ui pswp__ui--hidden">
+
+		            <div class="pswp__top-bar">
+
+
+		                <div class="pswp__counter"></div>
+
+		                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+		                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+		                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+		                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+		                <div class="pswp__preloader">
+		                    <div class="pswp__preloader__icn">
+		                      <div class="pswp__preloader__cut">
+		                        <div class="pswp__preloader__donut"></div>
+		                      </div>
+		                    </div>
+		                </div>
+
+		            </div>
+
+		            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+		                <div class="pswp__share-tooltip"></div> 
+		            </div>
+
+		            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+		            </button>
+
+		            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+		            </button>
+
+		            <div class="pswp__caption">
+		                <div class="pswp__caption__center"></div>
+		            </div>
+
+		        </div>
+
+		    </div>
+
+		</div> -->
+
+	<!-- ///////////////////\\\\\\\\\\\\\\\\\\\ -->
+    <!-- ********** Resources jQuery ********** -->
+    <!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
+	
+	<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easings.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Accelerated JavaScript animation JS file -->
+	<script src="js/velocity.min.js"></script> 
+
+	<!-- Accelerated JavaScript animation UI JS file -->
+	<script src="js/velocity.ui.min.js"></script> 
+
+	<!-- Newsletter plugin -->
+	<script src="js/notifyMe.js"></script>
+
+	<!-- Contact form plugin -->
+	<script src="js/contact-me.js"></script>
+
+	<!-- Scroll plugin -->
+	<script src="js/jquery.mousewheel.js"></script>
+
+	<!-- Custom Scrollbar plugin -->
+	<!-- <script src="js/jquery.mCustomScrollbar.js"></script> -->
+
+	<!-- Popup Newsletter Form -->
+	<script src="js/classie.js"></script>
+	<script src="js/dialogFx.js"></script>
+
+	<!-- PhotoSwipe Core JS file -->
+	<script src="js/photoswipe.js"></script> 
+
+	<!-- PhotoSwipe UI JS file -->
+	<script src="js/photoswipe-ui-default.js"></script>
+
+	<!-- Countdown plugin -->
+	<script src="js/jquery.countdown.js"></script>
+	
+	<!-- Star Wars plugin -->
+	<script src="js/starfield.js"></script>
+
+	<!-- Main JS File -->
+	<script src="js/main.js"></script>
+	
+	<!-- Etherscan JS File -->
+	<script src="js/etherscan.js"></script>
+
+	<!-- <script src="js/etherscan.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- DataTable js -->
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+	<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>	 -->
+	<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+	<script>
+		// showing information box
+		// var contractAddress = "0x927F0a78B90D647eD82086D1C93a02245C631277"
+		// document.getElementById('contractAddress').innerHTML = contractAddress
+
+		$('#copyBtn, #copyBtn1').click(function () {
+			$('.copyAlert').fadeIn()
+			setTimeout(function () {
+				$('.copyAlert').fadeOut()
+			}, 2000)
+		})
+		// var address = [
+		// 	'0x3aea4b4f8db6a6f75042ad2df770b976cbd561eefb092865e1055884bcd776db', 
+		// 	'0x85462b6e6aad9a44099287e9fad2099d051d678c5b6c34b746a55e105bc0ab60', 
+		// 	'0xc3628f607ad62ffb5d2d8cb999666c5777651874212864dd32f311611ecfce8e', 
+		// 	'0x216e5ba278e64217a3a5ef33ed527c4810a8ee8c72a211fc4b99d0b18f0c6e0c', 
+		// 	'0xa2f37ad2164f494abbde661c2002840ced9a0422837b4a5ba17ba90ce7402c27'
+		// ]
+
+		// var arrIndex = 0
+		// setInterval(function () {
+		// 	$('#contractAddress').html(address[arrIndex])
+		// 	$('#copyBtn').html(address[arrIndex])
+		// 	var mobStr = address[arrIndex]
+		// 	$('#copyBtn1').html(mobStr.substring(0, 33) + '<br>' + mobStr.substring(33))
+			
+		// 	if (arrIndex == 4) {
+		// 		arrIndex = 0
+		// 	} else {
+		// 		arrIndex++
+		// 	}
+		// }, 3000)
+
+		var btn = document.getElementById('copyBtn');
+		var clipboard = new ClipboardJS(btn);
+		var btn1 = document.getElementById('copyBtn1');
+		var clipboard1 = new ClipboardJS(btn1);
+		clipboard.on('success', function(e) {
+			console.log(e);
+		});
+		clipboard.on('error', function(e) {
+			console.log(e);
+		});
+	</script>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+		new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; bottom:20px; background-color: #3bb82c; border-radius: 30px; position: fixed; display:none;">
+    <a class="a2a_button_telegram" href="t.me/happyetheronline">Group</a>
+    <a class="a2a_button_telegram" href="t.me/happyether">Channel</a>				
+</div>
+
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+	</body>
+</html>
